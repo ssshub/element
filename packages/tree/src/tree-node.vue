@@ -5,7 +5,8 @@
     :class="{
       'is-expanded': childNodeRendered && expanded,
       'is-current': tree.store.currentNode === node,
-      'is-hidden': !node.visible
+      'is-hidden': !node.visible,
+       'is-disabled': node.disabled
     }">
     <div class="el-tree-node__content"
       :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }">
@@ -136,6 +137,9 @@
 
       handleClick() {
         const store = this.tree.store;
+        if(node.disabled){
+          return;
+        }
         store.setCurrentNode(this.node);
         this.tree.$emit('current-change', store.currentNode ? store.currentNode.data : null, store.currentNode);
         this.tree.currentNode = this;
