@@ -101,3 +101,10 @@
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
   background-color: color(var(--color-primary) tint(92%));
 }
+
+.el-tree--highlight-current .el-tree-node.is-disabled > .el-tree-node__content {
+  background: var(--color-light-gray);
+  cursor: not-allowed;
+  color: var(--button-disabled-color);
+}
+
